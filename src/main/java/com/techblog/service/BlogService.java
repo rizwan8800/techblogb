@@ -86,12 +86,10 @@ public class BlogService {
 				
 				try {
 					String  BASE_DIR = new ClassPathResource("").getFile().getAbsolutePath();					
-					Path p = Path.of(BASE_DIR+"/image/"+destFileName);
-					System.out.println(p.toString());
+					Path p = Path.of(BASE_DIR+File.separator+"image"+File.separator+destFileName);
 					File f = new File(p.toString());
 					f.createNewFile();
 					Files.copy(file.getInputStream(), p, StandardCopyOption.REPLACE_EXISTING);
-					System.out.println("file saved successfully");
 					String link = ServletUriComponentsBuilder.fromCurrentContextPath().path("/blog/v1/image/"+destFileName).toUriString();
 					links.add(link);
 				} catch (IOException e) {
