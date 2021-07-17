@@ -2,9 +2,12 @@ package com.techblog.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.websocket.server.PathParam;
 
 import org.apache.commons.io.FileUtils;
@@ -27,8 +30,8 @@ import com.techblog.service.BlogService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.SwaggerDefinition;
 import lombok.RequiredArgsConstructor;
+
 
 @RestController
 @RequestMapping("/blog/v1")
@@ -39,6 +42,19 @@ public class BlogController {
 	
 	@Autowired
 	private final BlogService blogService;
+
+	@PostConstruct
+	public void init() throws IOException {
+		String  BASE_DIR = new ClassPathResource("").getFile().getAbsolutePath();					
+		Path p = Path.of(BASE_DIR+File.separator+"image");
+		try {			
+			Files.createDirectory(p);
+			System.out.println("directory created");
+		} catch (Exception e) {
+			System.out.println("file exist already");
+		}
+	}
+	
 	
 	
 	
