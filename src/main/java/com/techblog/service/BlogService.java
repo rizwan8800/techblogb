@@ -86,7 +86,7 @@ public class BlogService {
 				
 				try {
 					String  BASE_DIR = new ClassPathResource("").getFile().getAbsolutePath();					
-					Path p = Path.get(BASE_DIR+File.separator+"image"+File.separator+destFileName);
+					Path p = Path.of(BASE_DIR+File.separator+"image"+File.separator+destFileName);
 					File f = new File(p.toString());
 					f.createNewFile();
 					Files.copy(file.getInputStream(), p, StandardCopyOption.REPLACE_EXISTING);
