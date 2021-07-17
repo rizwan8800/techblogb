@@ -16,7 +16,7 @@ public interface BlogRepository extends JpaRepository<Blog, String> {
 
 	List<Blog> findAllByCategoryContaining(String category);
 	
-	List<Blog> findDistinctByCategoryContainingOrContentContainingOrHeadingContaining(String key1, String key2, String key3);
+	List<Blog> findAllByCategoryContainingOrContentContainingOrHeadingContaining(String key1, String key2, String key3);
 
 	int countByPostedAtAfter(LocalDateTime timestamp);
 
