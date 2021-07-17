@@ -85,8 +85,13 @@ public class BlogService {
 				String filename = file.getOriginalFilename();
 				String destFileName = UUID.randomUUID().toString()+filename;
 				
+				try {
+					Files.createDirectory(Path.of("./uploads"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				
-				try {	
+				try {
 					Path p = Path.of("./uploads/"+destFileName);
 					File f = new File(p.toString());
 					f.createNewFile();
