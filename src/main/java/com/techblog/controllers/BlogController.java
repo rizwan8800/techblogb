@@ -117,8 +117,7 @@ public class BlogController {
 	 public ResponseEntity<byte[]> getImage(@PathVariable("filename") String filename) throws IOException {
 		 byte[] image = new byte[0];
 		 try {
-			  String FILE_PATH_ROOT = new ClassPathResource("").getFile().getAbsolutePath();
-	            image = FileUtils.readFileToByteArray(new File(FILE_PATH_ROOT+"/image/"+filename));
+	            image = FileUtils.readFileToByteArray(new File("./uploads/"+filename));
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }

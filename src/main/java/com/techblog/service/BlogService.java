@@ -86,17 +86,8 @@ public class BlogService {
 				String destFileName = UUID.randomUUID().toString()+filename;
 				
 				
-				try {
-					String  BASE_DIR = new ClassPathResource("").getFile().getAbsolutePath();					
-					Path p = Path.of(BASE_DIR+File.separator+"image"+File.separator+destFileName);
-
-					try {			
-			Files.createDirectory(Path.of(BASE_DIR+File.separator+"image"));
-			System.out.println("directory created");
-		} catch (Exception e) {
-			System.out.println("file exist already");
-		}
-
+				try {	
+					Path p = Path.of("./uploads/"+destFileName);
 					File f = new File(p.toString());
 					f.createNewFile();
 					Files.copy(file.getInputStream(), p, StandardCopyOption.REPLACE_EXISTING);
