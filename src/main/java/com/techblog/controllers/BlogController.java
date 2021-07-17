@@ -43,17 +43,6 @@ public class BlogController {
 	@Autowired
 	private final BlogService blogService;
 
-	@PostConstruct
-	public void init() throws IOException {
-		String  BASE_DIR = new ClassPathResource("").getFile().getAbsolutePath();					
-		Path p = Path.of(BASE_DIR+File.separator+"image");
-		try {			
-			Files.createDirectory(p);
-			System.out.println("directory created");
-		} catch (Exception e) {
-			System.out.println("file exist already");
-		}
-	}
 	
 	
 	
