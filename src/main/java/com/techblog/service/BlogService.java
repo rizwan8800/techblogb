@@ -79,7 +79,7 @@ public class BlogService {
 		Set<String> links = new HashSet<>();
 		if(files.size() != 0) {
 			for(int i=0;i <files.size(); i++) {
-				var file = files.get(i);
+				MultipartFile file = files.get(i);
 				String filename = file.getOriginalFilename();
 				String destFileName = UUID.randomUUID().toString()+filename;
 				
