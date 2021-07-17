@@ -12,10 +12,13 @@ import com.techblog.models.Blog;
 import com.techblog.models.Comment;
 import com.techblog.repository.CommentRepo;
 
+import javax.transaction.Transactional;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CommentService {
 	
 	@Autowired
