@@ -68,7 +68,7 @@ public class BlogService {
 	}
 
 	public List<Blog> searchBlog(String key) {
-		return blogRepository.findAllByContentContaining(key);
+		return blogRepository.findAllByCategoryContainingOrHeadingContaining(key,key);
 	}
 
 	public int findLatestCount(LocalDateTime timestamp) {
