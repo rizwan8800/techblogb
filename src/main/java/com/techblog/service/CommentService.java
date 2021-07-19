@@ -47,7 +47,8 @@ public class CommentService {
 		
 		Comment c = commentRepo.findByCommentUuid(commentId);
 		c.getReplies().add(commentReply);
-		return commentRepo.save(c);
+		commentRepo.save(c);
+		 return commentReply;
 		 
 	}
 
