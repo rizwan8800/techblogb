@@ -63,7 +63,7 @@ public class BlogService {
 		blog.setContent(blogDto.getContent());
 		blog.setHeading(blogDto.getHeading());
 		
-		if(blogDto.getFiles().size() != 0) {
+		if(blogDto.getFiles() != null && blogDto.getFiles().size() != 0) {
 		blog.setImageLinks(getlinks(blogDto.getFiles()));
 		}else {
 			blog.setImageLinks(new HashSet<String>());
